@@ -1,5 +1,7 @@
 # SawWiden · minilogue xd mod FX
 
+<img src="assets/icon.svg" width="96" align="right" alt="icon">
+
 A mono-safe stereo widener for the KORG minilogue xd, made to spread supersaws without smearing them.
 The dry center is never touched: a moving "side" signal is added to the left and subtracted from the right, so if you sum to mono the effect cancels out cleanly. No phasing, bass stays centered.
 
