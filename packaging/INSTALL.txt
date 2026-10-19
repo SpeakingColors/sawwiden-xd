@@ -1,0 +1,9 @@
+SawWiden, minilogue xd user unit (Studio 87)
+
+1. Open KORG minilogue xd Sound Librarian and connect the xd by USB.
+2. Drag sawwiden.mnlgxdunit into a free User Mod FX slot.
+3. Send to the synth.
+4. On the xd: Effects → MOD → USR → SawWiden.
+
+Free and open source (MIT). Collects nothing, no network.
+Not affiliated with or endorsed by KORG.
