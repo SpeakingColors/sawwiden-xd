@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SawWiden</title>
+<style>
+:root{--bg:#161638;--panel:#1c1c4a;--line:#33403f;--text:#e8e6e1;--muted:#9a9690;--teal:#02EBBA;--pink:#FF1383;--amber:#FFA600;--sky:#6CC9F5}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.55 system-ui,Arial,sans-serif}
+main{max-width:860px;margin:0 auto;padding:28px 16px 48px}
+h1{margin:0 0 4px;font-size:34px} h2{color:var(--teal);font-size:20px;margin:30px 0 8px}
+a{color:var(--pink)} p{margin:8px 0} .muted{color:var(--muted)}
+img.shot{width:100%;height:auto;border:1px solid var(--line);border-radius:8px;display:block}
+.cap{color:var(--muted);font-size:13px;margin-top:6px}
+.box{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:12px 16px;margin:12px 0}
+.box b{color:var(--amber)}
+table{width:100%;border-collapse:collapse;margin:8px 0;font-size:15px}
+th,td{text-align:left;padding:6px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--sky);font-weight:600}
+code{background:#0e0e26;padding:1px 5px;border-radius:4px}
+.links a{display:inline-block;margin:4px 12px 4px 0}
+.wrap{overflow-x:auto}
+</style></head><body><main>
+<h1>SawWiden</h1>
+<p class="muted">minilogue xd mod FX · version 1.0 · Studio 87</p>
+<p>A mono-safe stereo widener for spreading supersaws without smearing them. The dry centre is never touched; a moving side signal is added to the left and subtracted from the right, so it cancels when summed to mono.</p>
+<img class="shot" src="screenshot.png" alt="Illustrated card for SawWiden">
+<div class="cap">Illustrated card, not a screenshot: this unit has no window, it runs on the synth.</div>
+<div class="box"><b>Status.</b><ul>
+<li>Version 1.0. The unit in dist/ was built from this repo&#x27;s source.</li>
+<li>No test on a real minilogue xd is recorded in this repo yet. Treat it as a test build and tell us what you hear.</li>
+<li>Linux install steps are not tested yet.</li>
+<li>Pre-release on GitHub.</li>
+</ul></div>
+<h2>Install</h2><ol>
+<li>Download the zip from <a href="https://github.com/SpeakingColors/sawwiden-xd/releases">Releases</a> (or the unit file in <code>dist/</code>). Do not rename or open the <code>sawwiden.mnlgxdunit</code> file.</li>
+<li>Open the KORG minilogue xd Sound Librarian and connect the synth by USB.</li>
+<li>Drag <code>sawwiden.mnlgxdunit</code> into a free <b>User Mod FX</b> slot and send it to the synth.</li>
+<li>On the synth: <b>Effects, MOD, USR, SawWiden</b>.</li>
+</ol><p class="muted">Linux (not tested yet): use KORG's <code>logue-cli</code>, steps are in INSTALL.txt inside the zip and in the README.</p>
+<h2>Controls, as the synth screen shows them</h2>
+<p>SawWiden has no custom parameters of its own (num_param is 0). It uses the xd&#x27;s two mod FX knobs, TIME and DEPTH, so the one-higher display rule for typeless parameters does not apply.</p>
+<div class="wrap"><table><tr><th>Control</th><th>Screen shows</th><th>What it does</th></tr>
+<tr><td>TIME</td><td>knob</td><td>Movement speed of the side signal, from about 0.05 Hz (slow drift) up to about 4 Hz (lively shimmer), exponential feel.</td></tr>
+<tr><td>DEPTH</td><td>knob</td><td>Width. Lowest = no side signal (dry), highest = very wide.</td></tr>
+</table></div>
+<p>How it works: two delay taps (up to about 42 ms) moved by 3-phase LFOs, string-ensemble style, high-passed near 150 Hz so the low end stays in the middle, then used as the side signal.</p>
+<h2>Problems</h2><p>No problems are recorded in this repo. If something sounds wrong on your synth, please open an issue and say which firmware you have.</p>
+<div class="links"><h2>Links</h2><a href="https://github.com/SpeakingColors/sawwiden-xd">Source on GitHub</a><a href="https://github.com/SpeakingColors/sawwiden-xd/releases">Releases</a><a href="https://ko-fi.com/studio87">Support Studio 87 on Ko-fi</a></div>
+<p class="cap">Free and open source (MIT). Collects nothing, no network. Not affiliated with or endorsed by KORG. KORG and minilogue are trademarks of KORG Inc., used only to say which synth this works with.</p></main></body></html>

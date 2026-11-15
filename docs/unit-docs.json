@@ -1,0 +1,37 @@
+{
+ "name": "SawWiden",
+ "version": "1.0",
+ "device": "minilogue xd",
+ "kind": "mod FX",
+ "file": "sawwiden.mnlgxdunit",
+ "slot": "User Mod FX",
+ "where": "Effects, MOD, USR, SawWiden",
+ "repo": "https://github.com/SpeakingColors/sawwiden-xd",
+ "tagline": "A mono-safe stereo widener for spreading supersaws without smearing them. The dry centre is never touched; a moving side signal is added to the left and subtracted from the right, so it cancels when summed to mono.",
+ "screen_note": "SawWiden has no custom parameters of its own (num_param is 0). It uses the xd's two mod FX knobs, TIME and DEPTH, so the one-higher display rule for typeless parameters does not apply.",
+ "knobs": [
+  {
+   "name": "TIME",
+   "range": "knob",
+   "what": "Movement speed of the side signal, from about 0.05 Hz (slow drift) up to about 4 Hz (lively shimmer), exponential feel."
+  },
+  {
+   "name": "DEPTH",
+   "range": "knob",
+   "what": "Width. Lowest = no side signal (dry), highest = very wide."
+  }
+ ],
+ "params": {},
+ "enums": {},
+ "notes": [
+  "How it works: two delay taps (up to about 42 ms) moved by 3-phase LFOs, string-ensemble style, high-passed near 150 Hz so the low end stays in the middle, then used as the side signal."
+ ],
+ "starters": [],
+ "problems": "No problems are recorded in this repo. If something sounds wrong on your synth, please open an issue and say which firmware you have.",
+ "status": [
+  "Version 1.0. The unit in dist/ was built from this repo's source.",
+  "No test on a real minilogue xd is recorded in this repo yet. Treat it as a test build and tell us what you hear.",
+  "Linux install steps are not tested yet.",
+  "Pre-release on GitHub."
+ ]
+}

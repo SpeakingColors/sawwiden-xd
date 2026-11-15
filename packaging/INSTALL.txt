@@ -1,9 +1,59 @@
-SawWiden, minilogue xd user unit (Studio 87)
+SawWiden 1.0, minilogue xd mod FX (Studio 87)
 
-1. Open KORG minilogue xd Sound Librarian and connect the xd by USB.
-2. Drag sawwiden.mnlgxdunit into a free User Mod FX slot.
-3. Send to the synth.
-4. On the xd: Effects → MOD → USR → SawWiden.
+A mono-safe stereo widener for spreading supersaws without smearing them.
+  The dry centre is never touched; a moving side signal is added to the left
+  and subtracted from the right, so it cancels when summed to mono.
 
+WHAT YOU NEED
+  - A KORG minilogue xd with a USB cable to your computer
+  - Windows or Mac: the KORG minilogue xd Sound Librarian
+  - Linux: KORG's logue-cli (see the Linux section, not tested yet)
+
+INSTALL (Windows or Mac)
+  1. Open the zip and keep the sawwiden.mnlgxdunit file as it is. It is
+     itself a zip: do not rename it or open it.
+  2. Open the Sound Librarian and connect the synth by USB.
+  3. Drag sawwiden.mnlgxdunit into a free User Mod FX slot.
+  4. Send to the synth and wait until it finishes.
+  5. On the synth: Effects, MOD, USR, SawWiden.
+
+INSTALL (Linux, not tested yet)
+  The Sound Librarian has no Linux version. KORG's command line tool
+  logue-cli can load units (64-bit Linux only; get it from the logue-sdk
+  repo, folder tools/logue-cli, script get_logue_cli_linux.sh).
+  1. logue-cli check -u sawwiden.mnlgxdunit
+  2. logue-cli probe -l
+     Use the input port ending in KBD/KNOB and the output port ending in
+     SOUND. The other ports are the old MIDI DIN jacks.
+  3. logue-cli load -u sawwiden.mnlgxdunit -i <in port> -o <out port>
+     (this uses the first free slot)
+  If load fails on Linux, that is a known issue in KORG's repo (#37).
+
+CONTROLS (as the synth screen shows them)
+  SawWiden has no custom parameters of its own (num_param is 0). It uses the
+    xd's two mod FX knobs, TIME and DEPTH, so the one-higher display rule
+    for typeless parameters does not apply.
+
+  - TIME [knob]: Movement speed of the side signal, from about 0.05 Hz (slow
+      drift) up to about 4 Hz (lively shimmer), exponential feel.
+  - DEPTH [knob]: Width. Lowest = no side signal (dry), highest = very wide.
+
+  How it works: two delay taps (up to about 42 ms) moved by 3-phase LFOs,
+    string-ensemble style, high-passed near 150 Hz so the low end stays in
+    the middle, then used as the side signal.
+
+PROBLEMS
+  No problems are recorded in this repo. If something sounds wrong on your
+    synth, please open an issue and say which firmware you have.
+
+STATUS
+  - Version 1.0. The unit in dist/ was built from this repo's source.
+  - No test on a real minilogue xd is recorded in this repo yet. Treat it as
+      a test build and tell us what you hear.
+  - Linux install steps are not tested yet.
+  - Pre-release on GitHub.
+
+Source and updates: https://github.com/SpeakingColors/sawwiden-xd
 Free and open source (MIT). Collects nothing, no network.
-Not affiliated with or endorsed by KORG.
+Not affiliated with or endorsed by KORG. KORG and minilogue are trademarks of
+KORG Inc., used only to say which synth this works with.
